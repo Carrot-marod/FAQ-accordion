@@ -1,30 +1,30 @@
 // variables
-let questions = document.querySelectorAll(".question")
-let answers = document.querySelectorAll(".answer")
-let body = document.querySelector("body")
-let answersArray =  Array.from(answers)
+const questions = document.querySelectorAll(".question")
+const answers = document.querySelectorAll(".answer")
+const body = document.querySelector("body")
+const answersArray =  Array.from(answers)
 
 
 
 // functions
-let resetAllAnswers = () => {
+const resetAllAnswers = () => {
     answers.forEach(oneAsnwer => {
         oneAsnwer.classList.remove("active")
     })
     questions.forEach(oneAsnwer => {
-        let picture = oneAsnwer.querySelector("img")
+        const picture = oneAsnwer.querySelector("img")
         picture.setAttribute("src", "assets/images/icon-plus.svg")
     })
 }
 
-let changeImg = (oneAsnwer) => {
-    let picture = oneAsnwer.querySelector("img")
+const changeImg = (oneAsnwer) => {
+    const picture = oneAsnwer.querySelector("img")
         picture.setAttribute("src", "assets/images/icon-minus.svg")
 }
 
 
-let switcher = (direction, activeIndex) => {
-    let answersMaxIndex = answers.length -1
+const switcher = (direction, activeIndex) => {
+    const answersMaxIndex = answers.length -1
     let newIndex 
     
     resetAllAnswers()
@@ -55,13 +55,13 @@ resetAllAnswers()
 // Hide/Show the answer to a question when the question is clicked
 questions.forEach(oneQuestion => {
 
-    let clickable = oneQuestion.firstElementChild
+    const clickable = oneQuestion.firstElementChild
 
     clickable.addEventListener("click", event => {
         event.preventDefault()
 
-        let answer = oneQuestion.querySelector("p")
-        let isActive = answer.classList.contains("active")
+        const answer = oneQuestion.querySelector("p")
+        const isActive = answer.classList.contains("active")
 
         resetAllAnswers()
 
@@ -81,7 +81,7 @@ body.addEventListener("keydown", event => {
         event.preventDefault()
     
         // findig the index of the active answer (0-3) or not active (-1)
-        let activeIndex = answersArray.findIndex( x => 
+        const activeIndex = answersArray.findIndex( x => 
             x.classList.contains("active")
         )
         
