@@ -2,9 +2,6 @@
 const questions = document.querySelectorAll(".question")
 const answers = document.querySelectorAll(".answer")
 const body = document.querySelector("body")
-const answersArray =  Array.from(answers)
-
-
 
 // functions
 const resetAllAnswers = () => {
@@ -79,6 +76,8 @@ questions.forEach(oneQuestion => {
 body.addEventListener("keydown", event => {
     if (event.key === "ArrowDown" || event.key === "ArrowUp") {
         event.preventDefault()
+
+        const answersArray =  Array.from(answers)
     
         // findig the index of the active answer (0-3) or not active (-1)
         const activeIndex = answersArray.findIndex( x => 
